@@ -13,5 +13,6 @@ namespace PieShop.Web.Data
         }
         public DbSet<Pie>? Pie { get; set; }
         public DbSet<PieShop.Core.Models.Order>? Order { get; set; }
+        public DbSet<PieShop.Core.Models.PieGiftOrder>? PieGiftOrder { get; set; }
     }
 }
