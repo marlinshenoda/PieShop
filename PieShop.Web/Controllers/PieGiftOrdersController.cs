@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PieShop.Core.Models;
-using PieShop.Web.Data;
+using PieShop.Data;
 
 namespace PieShop.Web.Controllers
 {
