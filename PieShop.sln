@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieShop.Web", "PieShop.Web\PieShop.Web.csproj", "{0A2F595F-B973-47A7-8224-9F0B20F1A5DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShop.Web", "PieShop.Web\PieShop.Web.csproj", "{0A2F595F-B973-47A7-8224-9F0B20F1A5DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieShop.Data", "PieShop.Data\PieShop.Data.csproj", "{B5FCB13D-789A-4CCB-B1F3-1F0FFFB669B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShop.Data", "PieShop.Data\PieShop.Data.csproj", "{B5FCB13D-789A-4CCB-B1F3-1F0FFFB669B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieShop.Core", "PieShop.Core\PieShop.Core.csproj", "{93EC2711-9864-418B-8F42-AFDA62AC7945}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieShop.Core", "PieShop.Core\PieShop.Core.csproj", "{93EC2711-9864-418B-8F42-AFDA62AC7945}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

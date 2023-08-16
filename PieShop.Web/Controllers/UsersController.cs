@@ -1,18 +1,21 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PieShop.Core.Models;
+using PieShop.Data;
 using PieShop.ViewModel;
 
 namespace PieShop.Web.Controllers
 {
-    public class UserController1 : Controller
+    public class UsersController : Controller
     {
 
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-
-        public UserController1(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        private readonly ApplicationDbContext _context;
+        public UsersController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
+            _context = context;
+
             _userManager = userManager;
             _roleManager = roleManager;
         }
@@ -21,13 +24,13 @@ namespace PieShop.Web.Controllers
         {
             return View();
         }
-        public IActionResult AddUser()
+        public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddUser(AddUserViewModel addUserViewModel)
+        public async Task<IActionResult> Create(AddUserViewModel addUserViewModel)
         {
             if (!ModelState.IsValid) return View(addUserViewModel);
 

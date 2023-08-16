@@ -25,7 +25,7 @@ builder.Services.AddIdentity<ApplicationUser,IdentityRole>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(typeof(MapperProfile));
-
+builder.Services.AddHealthChecks();
 var app = builder.Build();
 //await app.SeedDataAsync();
 
@@ -52,6 +52,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-app.MapRazorPages();
+//app.MapRazorPages();
 
 app.Run();

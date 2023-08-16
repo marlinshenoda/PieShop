@@ -1,9 +1,11 @@
 ﻿@using PieShop.ViewModel
 @model AddUserViewModel
-
+@{
+    ViewData["Title"] = "Create";
+}
 <h2>Create a new user</h2>
 
-<form asp-controller="User" asp-action="AddUser" method="post" class="form-horizontal" role="form">
+<form asp-controller="User" asp-action="Create" method="post" class="form-horizontal" role="form">
     <h4>Enter the user details below</h4>
     <hr />
     <div asp-validation-summary="All" class="text-danger"></div>
@@ -62,3 +64,5 @@
         </div>
     </div>
 </form>
+
+

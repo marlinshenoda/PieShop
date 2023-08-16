@@ -10,6 +10,9 @@
 </head>
 <body>
     <header>
+          <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+              <title>@ViewBag.PageTitle</title>
+
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PieShop.Web</a>
@@ -32,9 +35,17 @@
         </nav>
     </header>
     <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+                <p class="lead">
+                    <img class="img-responsive" alt="Bethany's Pie Shop'" src="~/Images/bethanylogo.png"  />
+                </p>
+            </div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+        </div>
+        
     </div>
 
     <footer class="border-top footer text-muted">
