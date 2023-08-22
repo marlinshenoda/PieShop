@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PieShop.Core.Models;
 using PieShop.Data;
+using PieShop.Data.Reposities;
+using PieShop.Data.Repositories;
 using PieShop.Web.AutoMapper;
 using PieShop.Web.Extensions;
 
@@ -23,6 +25,8 @@ builder.Services.AddIdentity<ApplicationUser,IdentityRole>(options =>
 
 })
     .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddTransient<IPieRepository, PieRepository>();
+builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(typeof(MapperProfile));
 builder.Services.AddHealthChecks();

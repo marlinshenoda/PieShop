@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace PieShop.Core.Models
 {
+    #nullable disable
     public class Category
     {
         public int CategoryId { get; set; }

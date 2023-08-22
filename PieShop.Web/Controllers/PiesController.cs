@@ -6,25 +6,55 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PieShop.Core.Models;
+using PieShop.Core.ViewModel;
 using PieShop.Data;
+using PieShop.Data.Reposities;
+using PieShop.Data.Repositories;
 
 namespace PieShop.Web.Controllers
 {
     public class PiesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IPieRepository _pieRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public PiesController(ApplicationDbContext context)
+        public PiesController(ApplicationDbContext context, IPieRepository pieRepository, ICategoryRepository categoryRepository)
         {
+            _pieRepository = pieRepository;
+            _categoryRepository = categoryRepository;
             _context = context;
+        }
+        public ViewResult List(string category)
+        {
+            IEnumerable<Pie> pies;
+            string currentCategory = string.Empty;
+
+            if (string.IsNullOrEmpty(category))
+            {
+                pies = _pieRepository.Pies.OrderBy(p => p.PieId);
+                currentCategory = "All pies";
+            }
+            else
+            {
+                pies = _pieRepository.Pies.Where(p => p.Category.CategoryName == category)
+                   .OrderBy(p => p.PieId);
+                currentCategory = _categoryRepository.Categories.FirstOrDefault(c => c.CategoryName == category).CategoryName;
+            }
+
+            return View(new PiesListViewModel
+            {
+                Pies = pies,
+                CurrentCategory = currentCategory
+            });
         }
 
         // GET: Pies
-        public async Task<IActionResult> Index()
-        {
-            var applicationDbContext = _context.Pie.Include(p => p.Category);
-            return View(await applicationDbContext.ToListAsync());
-        }
+        //public async Task<IActionResult> Index()
+        //{
+        //    var applicationDbContext = _context.Pie.Include(p => p.Category);
+        //    return View(await applicationDbContext.ToListAsync());
+        //}
 
         // GET: Pies/Details/5
         public async Task<IActionResult> Details(int? id)

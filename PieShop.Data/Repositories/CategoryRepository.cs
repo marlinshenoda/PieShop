@@ -1,18 +1,21 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
+﻿using PieShop.Core.Models;
+using PieShop.Data;
+using PieShop.Data.Reposities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-//namespace BethanysPieShop.Models
-//{
-//    public class CategoryRepository : ICategoryRepository
-//    {
-//        private readonly AppDbContext _appDbContext;
+namespace PieShop.Data.Repositories
+{
+    public class CategoryRepository : ICategoryRepository
+    {
+        private readonly ApplicationDbContext _appDbContext;
 
-//        public CategoryRepository(AppDbContext appDbContext)
-//        {
-//            _appDbContext = appDbContext;
-//        }
-//        public IEnumerable<Category> Categories => _appDbContext.Categories;
-//    }
-//}
+        public CategoryRepository(ApplicationDbContext appDbContext)
+        {
+            _appDbContext = appDbContext;
+        }
+        public IEnumerable<Category> Categories => _appDbContext.Category;
+    }
+}
